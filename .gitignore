@@ -1,0 +1,9 @@
+.idea/
+django_env
+file.txt
+
+migrations/*
+
+__pycache__/
+
+venv

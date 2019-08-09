@@ -1,0 +1,27 @@
+server {
+    listen 80;
+    root /var/www/html;
+    server_name ec2-18-144-2-57.us-west-1.compute.amazonaws.com;
+    location / {
+            # First attempt to serve request as file, then
+            # as directory, then fall back to displaying a 404.
+    try_files $uri /index.html;
+    }
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /djstatic/ {
+        root /home/ubuntu/project/projectenv/project-back/;
+    }
+
+    location /api {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+    location /admin {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+    location /auth {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+}
