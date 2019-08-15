@@ -8,4 +8,3 @@ from dhr.models import Employee
 
 admin.site.register(get_user_model())
 admin.site.register(Employee)
-

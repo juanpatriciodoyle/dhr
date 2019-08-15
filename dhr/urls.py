@@ -8,6 +8,13 @@ from dhr.views.authviews import obtain_jwt_token
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserView)
+router.register(r'dockets', views.DocketView)
+router.register(r'workShift', views.WorkShiftView)
+router.register(r'weeklySchedule', views.WeeklyScheduleView)
+router.register(r'familyMember', views.FamilyMemberView)
+router.register(r'bank', views.BankView)
+router.register(r'healthInsurance', views.HealthInsuranceView)
+router.register(r'address', views.AddressView)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
